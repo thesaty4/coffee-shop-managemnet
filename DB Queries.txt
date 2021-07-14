@@ -1,0 +1,38 @@
+//----------------------------- WRITTEN by SATYA NARAYAN MISHRA -------------------------------
+
+create database coffee_shop;
+use coffee_shop;
+
+create table login_info(
+usr_name varchar(50) primary key,
+name varchar(50),
+gender varchar(10),
+email varchar(50),
+address varchar(100),
+mobile varchar(14),
+passwd varchar(50));
+
+
+create table coffee_info(
+coffee_name varchar(50) primary key,
+price int,
+cur_date date DEFAULT CURRENT_TIMESTAMP);
+
+create table customer_info(
+customer_id int primary key auto_increment,
+name varchar(50),
+gender varchar(10),
+mobile varchar(20),
+total_pay int DEFAULT NULL,
+purchase_date date DEFAULT CURRENT_TIMESTAMP);
+
+create table bill(
+customer_id int,
+coffee_name varchar(50),
+quantity int,
+foreign key(customer_id) references customer_info(customer_id),
+foreign key(coffee_name) references coffee_info(coffee_name)
+);
+
+
+//----------------------------- WRITTEN by SATYA NARAYAN MISHRA -------------------------------
